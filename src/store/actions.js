@@ -36,46 +36,6 @@ export default {
             data.er && data.er()
         })
     },
-    aGetCaseList({ state, commit }, data = {}) {
-        htp({ ur: 'getCaseList', options: state.filterUpdata}).then(res => {
-            if (res.type == 'ok') {
-                commit('mUpdateCaseData', res.result)
-                const ids = state.caseList
-                htp({ ur: 'getCostById', options: { ids }}).then(res => {
-                    if (res.type == 'ok') {
-                        commit('mUpdateCaseSpend', res.result)
-                        commit('mPop', 'close')
-                    }
-                }, er => {
-                    data.er && data.er()
-                    // Message.error(er)
-                })
-            }
-        }, er => {
-            data.er && data.er()
-            // Message.error(er)
-        })
-    },
-    aGetAdvertiserList({ state, commit }, data = {}) {
-        htp({ ur: 'getAdvertiserList', options: state.filterUpdata }).then(res => {
-            if (res.type == 'ok') {
-                commit('mRes', res.result)
-                commit('mPop', 'close')
-            }
-        }, er => {
-            data.er && data.er()
-        })
-    },
-    aGetMediaList({ state, commit }, data = {}) {
-        htp({ ur: 'getMediaList', options: state.filterUpdata }).then(res => {
-            if (res.type == 'ok') {
-                commit('mRes', res.result)
-                commit('mPop', 'close')
-            }
-        }, er => {
-            data.er && data.er()
-        })
-    },
     aGetAccountInfo({ state, commit }, cb) {
         htp({ ur: 'getAccountInfo' }).then(res => {
             if (res.type == 'ok') {
@@ -91,53 +51,6 @@ export default {
             if (res.type == 'ok') {
                 data.callback && data.callback(res.result)
             }
-        }, er => {
-            data.er && data.er()
-            // Message.error(er)
-        })
-    },
-    aGetAdvertiserAll({ commit }) {
-        htp({ ur: 'getAdvertiserAll'}).then(res => {
-            if (res.type == 'ok') {
-                commit('mAdvertiserNameList', res.result)
-            }
-        }, er => {
-            // Message.error(er)
-        })
-    },
-    aGetEventInfo({}, data) {
-        htp({ ur: 'getEventInfo', options: data.ops}).then(res => {
-            if (res.type == 'ok') {
-                data.callback && data.callback(res.result)
-            }
-        }, er => {
-            data.er && data.er()
-            // Message.error(er)
-        })
-    },
-    aCreateChannel({}, data) {
-        htp({ ur: 'createChannel', options: data.ops}).then(res => {
-            if (res.type == 'ok') {
-                data.callback && data.callback(res.result)
-            }
-        }, er => {
-            data.er && data.er()
-            // Message.error(er)
-        })
-    },
-    aUpdateChannel({}, data) {
-        htp({ ur: 'updateChannel', options: data.ops}).then(res => {
-            if (res.type == 'ok') {
-                data.callback && data.callback(res.result)
-            }
-        }, er => {
-            data.er && data.er()
-            // Message.error(er)
-        })
-    },
-    aGetChannelInfo({}, data) {
-        htp({ ur: 'getChannelInfo', options: data.ops}).then(res => {
-            data.callback && data.callback(res.result)
         }, er => {
             data.er && data.er()
             // Message.error(er)
@@ -187,64 +100,6 @@ export default {
             // Message.error(er)
         })
     },
-    aCreateCase({}, data) {
-        htp({ ur: 'createCase', options: data.ops}).then(res => {
-            if (res.type == 'ok') {
-                data.callback && data.callback(res.result)
-            }
-        }, er => {
-            // Message.error(er)
-        })
-    },
-    aUpdateCase({}, data) {
-        htp({ ur: 'updateCase', options: data.ops}).then(res => {
-            if (res.type == 'ok') {
-                data.callback && data.callback(res.result)
-            }
-        }, er => {
-            data.er && data.er()
-            // Message.error(er)
-        })
-    },
-    aMediaAll({ state, commit }) {
-        !state.mediaAll.length && htp({ ur: 'mediaAll' }).then(res => {
-            if (res.type == 'ok') {
-                commit('mMediaAll', res.result)
-            }
-        }, er => {
-            // Message.error(er)
-        })
-    },
-    aMaterList({ state, commit }) {
-        htp({ ur: 'getMater', options: state.filterUpdata }).then(res => {
-            if (res.type == 'ok') {
-                commit('mRes', res.result)
-                commit('mPop', 'close')
-            }
-        }, er => {
-            // Message.error(er)
-        })
-    },
-    aFindCaseName({}, data) {
-        htp({ ur: 'findCaseName', options: data.ops}).then(res => {
-            if (res.type == 'ok') {
-                data.callback && data.callback(res.result)
-            }
-        }, er => {
-            data.er && data.er()
-            // Message.error(er)
-        })
-    },
-    aGetChannelList({}, data) {
-        htp({ ur: 'getChannelList', options: data.ops}).then(res => {
-            if (res.type == 'ok') {
-                data.callback && data.callback(res.result)
-            }
-        }, er => {
-            data.er && data.er()
-            // Message.error(er)
-        })
-    },
     // 公共请求方法
     aCommon({}, data) {
         htp({ ur: data.ur, options: data.ops || {}}).then(res => {
@@ -256,34 +111,4 @@ export default {
             // Message.error(er)
         })
     },
-    aGetOfflineMediaList({ state, commit }, data = {}) {
-        htp({ ur: 'offlineMediaList', options: state.filterUpdata }).then(res => {
-            if (res.type == 'ok') {
-                commit('mRes', res.result)
-                commit('mPop', 'close')
-            }
-        }, er => {
-            data.er && data.er()
-        })
-    },
-    aGetCompanyType({ state, commit }, data) {
-        !state.offlineCompanyType.length && htp({ ur: 'companyTypeList' }).then(res => {
-            if (res.type == 'ok') {
-                commit('mOfflineCompanyType', res.result)
-            }
-        }, er => {
-            data.er && data.er()
-            // Message.error(er)
-        })
-    },
-    aGetofflineCompany({ state, commit }, data) {
-        !state.offlineCompanyType.length && htp({ ur: 'offlineCompanyAllList' }).then(res => {
-            if (res.type == 'ok') {
-                commit('mOfflineCompany', res.result)
-            }
-        }, er => {
-            data.er && data.er()
-            // Message.error(er)
-        })
-    }
 }
