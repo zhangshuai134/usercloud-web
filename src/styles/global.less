@@ -1,0 +1,243 @@
+//  全局布局样式表
+.g {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    &-con {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding-left: 200px;
+        // padding-top: 50px;
+    }
+
+    &-sidebar {
+        position: absolute !important;
+        top: 0;
+        left: 0;
+        width: 200px !important;
+        height: 100%;
+        font-size: 0;
+        overflow: hidden;
+        transition: width .3s;
+        z-index: 10;
+
+        a {
+            display: inline-block;
+            width: 100%;
+        }
+
+        .el-menu {
+            width: 100% !important;
+        }
+
+        .horizontal-collapse-transition {
+            transition: 0s width ease-in-out, 0s padding-left ease-in-out, 0s padding-right ease-in-out;
+        }
+    }
+
+    &-main {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        // padding-left: 250px;
+        padding-top: 50px;
+        overflow: hidden;
+        transition: padding-left .3s;
+
+        &-box {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+        }
+    }
+
+    // 菜单收起
+    &-collapse {
+        padding-left: 85px !important;
+        .g-sidebar {
+            width: 85px !important;
+        }
+
+        .el-menu-item{
+            text-align: center;
+            .svg-icon{
+                width: 20px !important;
+                height: 20px !important;
+            }
+        }
+
+        .submenu-title-noDropdown {
+            position: relative;
+
+            .el-tooltip {
+                padding: 0 10px !important;
+            }
+        }
+
+        .el-submenu {
+            &>.el-submenu__title {
+                text-align: center;
+                padding-left: 25px !important;
+
+                .svg-icon{
+                    width: 20px !important;
+                    height: 20px !important;
+                }
+
+                &>span {
+                    height: 0;
+                    width: 0;
+                    overflow: hidden;
+                    visibility: hidden;
+                    display: inline-block;
+                }
+
+                .el-submenu__icon-arrow {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    &-top {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 50px;
+
+        &-nav {
+            position: relative;
+            height: 50px;
+            line-height: 50px;
+        }
+
+        &-tag {
+            position: relative;
+            height: 40px;
+            line-height: 40px;
+        }
+    }
+
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+        box-sizing: inherit;
+    }
+}
+
+// 覆盖框架菜单样式及纯粹的框架样式覆盖
+.el-menu {
+    border: none !important;
+}
+
+.el-submenu>.el-submenu__title,
+.el-menu-item{
+    height: 60px;
+    line-height: 60px;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    &:hover{
+        background-color: #F6F7FA;
+    }
+    &.is-active{
+        border-left-color: #0A3BBC;
+        background-color: #F6F7FA;
+    }
+    .svg-icon{
+        width: 18px !important;
+        height: 18px !important;
+        vertical-align: -4px !important;
+        transition: all .3s;
+    }
+}
+
+
+.el-upload__input {
+    display: none;
+}
+
+.cell {
+    .el-tag {
+        margin-right: 0px;
+    }
+}
+
+.small-padding {
+    .cell {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
+
+.upload-container {
+    .el-upload {
+        width: 100%;
+
+        .el-upload-dragger {
+            width: 100%;
+            height: 200px;
+        }
+    }
+}
+
+.el-dropdown-menu {
+    a {
+        display: block
+    }
+}
+
+.el-dialog{
+    &__header{
+        font-size: 18px;
+        font-weight: 600;
+        border-bottom: 1px solid #eee;
+    }
+    &__title{
+        color: #12123C;
+    }
+    &__body{
+        padding: 15px 20px;
+        max-height: 500px;
+        background-color: #F6F7FA;
+        overflow: auto;
+    }
+    &__footer{
+        padding: 20px;
+    }
+}
+
+.el-scrollbar__wrap{
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+// 表单组件
+.el-input {
+    &-group__append, &-group__prepend {
+        padding: 0 10px !important;
+    }
+    input {
+        -webkit-appearance: none;
+        color: #12123C;
+        caret-color: #12123C;
+        &:-webkit-autofill {
+          -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+          -webkit-text-fill-color: #12123C !important;
+        }
+    }
+}
+.el-date-editor--daterange {
+    width:100% !important;
+}
+.el-date-editor--datetimerange.el-input__inner{
+    width:240px;
+}
+
+
+

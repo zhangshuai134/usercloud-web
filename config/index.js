@@ -10,8 +10,6 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
-
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
@@ -20,7 +18,7 @@ module.exports = {
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
 
-    
+
     /**
      * Source Maps
      */
@@ -32,6 +30,38 @@ module.exports = {
     // set this to false - it *may* help
     // https://vue-loader.vuejs.org/en/options.html#cachebusting
     cacheBusting: true,
+    proxyTable: {
+      '/wp': {
+        // target: 'http://172.30.91.121:8082',
+        target: 'http://172.30.10.143:18088',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/wp/': '/'
+        }
+      },
+      '/yc': {
+        // target: 'http://172.30.91.121:8082',
+        target: 'http://172.30.10.143:18088',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/yc/': '/'
+        }
+      },
+      '/proxy': {
+        // target: 'http://172.30.91.121:8082',
+        target: 'http://172.30.10.143:18088',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/proxy/': '/'
+        }
+      },
+      '/api': {
+        // target: 'http://172.30.50.48:8082',
+        // target: 'http://172.30.10.143:18088',
+        target: 'http://localhost:8001',
+        changeOrigin: true
+      }
+    },
 
     cssSourceMap: true
   },

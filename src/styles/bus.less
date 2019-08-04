@@ -1,0 +1,764 @@
+// 定义风格变量
+@fzcolor: #12123C;
+@bncolor: #0A3BBC;
+@bfcolor: #204EC2;
+@label: #8F979F;
+@toph: 60px;
+@mcolor: #0a3bbc;
+
+    // 覆盖全局框架样式
+.el-button{
+    &--primary{
+        color: #fff;
+        background-color: @bncolor;
+        border-color: @bncolor;
+    }
+    &.is-plain{
+        color: @bfcolor;
+        background-color: transparent;
+        border-color: @bncolor;
+    }
+    &:hover, &:focus{
+        color: #fff !important;
+        background-color: lighten(@bncolor, 10%) !important;
+        border-color: lighten(@bncolor, 10%) !important;
+    }
+}
+.el-radio-group{
+    .el-radio-button{
+        &__inner{
+            background-color: #E5E8EF;
+            color: #8F979F;
+            // width: 80px;
+            text-align: center;
+            border-color: transparent !important;
+        }
+        &.is-active{
+            .el-radio-button__inner{
+                background-color: #fff;
+                color: @bncolor;
+                box-shadow: none !important;
+            }
+        }
+    }
+
+}
+.el-form {
+    &-item {
+        margin: 0;
+        padding: 12px 0;
+        &__label{
+            font-size: 12px;
+            color: #8F979F;
+            line-height: 14px !important;
+        }
+    }
+    .separate-item{
+        .line{
+            text-align: center;
+        }
+    }
+    .el-input__inner{
+        font-size: 14px;
+        color: @fzcolor;
+    }
+    .el-select{
+        width: 100%;
+    }
+    // money种类输入下拉框样式
+    .b-select-money {
+        .el-input-group__prepend{
+            background-color: #fff;
+            width: 70px;
+        }
+        .el-select{
+            width: 70px;
+            margin: -10px -10px;
+            .el-input__inner{
+                padding-left:8px;
+            }
+        }
+    }
+}
+.el-select{
+    &-dropdown__item.selected {
+        color: @bncolor;
+    }
+}
+.el-pagination.is-background .el-pager li:not(.disabled) {
+    &.active {
+        background-color: @bncolor;
+        &:hover {
+            color: #fff;
+        }
+    }
+    &:hover {
+        color: @bncolor;
+    }
+}
+
+// table组件样式覆盖
+.el-table {
+    &__expanded-cell {
+        background-color: #F9FAFC;
+        border-left: 2px solid #0035C2;
+    }
+    &__row {
+        color: @fzcolor;
+        font-size: 12px;
+    }
+}
+
+// 搜索模块
+.b-search{
+    position: relative;
+    clear: both;
+    overflow: hidden;
+    padding: 10px 0px 20px;
+}
+// 分页模块
+.b-page{
+    padding: 20px 10px 15px 0;
+    text-align: right;
+}
+// 卡片效果
+.b-card{
+    .el-card__header {
+        padding: 0px !important;
+    }
+    &-header{
+        position: relative;
+        height: 220px;
+        img {
+        width: 100%;
+        height: 100%;
+        transition: all 0.2s linear;
+        &:hover {
+            transform: scale(1.1, 1.1);
+            filter: contrast(130%);
+        }
+        }
+    }
+}
+// 路由主视窗
+.b-con{
+    position: relative;
+    width: 100%;
+    &-title{
+        position: relative;
+        width: 100%;
+        height: 60px;
+        border-bottom: 1px solid #E4E6EC;
+        clear: both;
+        h1{
+            float: left;
+            line-height: 60px;
+            font-size: 20px;
+            color: #666;
+            margin: 0;
+        }
+    }
+    &-top{
+        position: relative;
+        height: @toph;
+        overflow: hidden;
+        h1{
+            padding: 0;
+            margin: 0;
+            font-size: 28px;
+            color: @fzcolor;
+            height: @toph;
+            line-height: @toph;
+            display: inline-block;
+            vertical-align: top
+        }
+        &-item{
+            height: @toph;
+            line-height: @toph;
+        }
+    }
+}
+// table表格
+.b-table{
+    position: relative;
+    width: 100%;
+    padding: 15px 0;
+}
+// 通用表单样式
+.b-input{
+    position: relative;
+    clear: both;
+    overflow: hidden;
+    padding: 12px 15px;
+    &-info{
+        position: relative;
+        padding-top:10px;
+        h3{
+            font-size: 14px;
+            color: @fzcolor;
+            line-height: 45px;
+        }
+        p{
+            font-size: 12px;
+            color: @label;
+            line-height: 18px;
+        }
+    }
+    &-main{
+        position: relative;
+        padding: 15px;
+        background-color: #fff;
+        border: 1px solid #E4E6EC;
+        border-radius: 4px;
+        .el-col{
+            padding: 0 !important;
+            .el-form-item{
+                padding: 0 !important;
+            }
+        }
+    }
+    &-foot{
+        padding-top:20px;
+    }
+}
+// 全局过滤按钮
+.b-filter{
+    color: @fzcolor;
+    font-size: 16px;
+    padding: 8px 15px;
+    vertical-align: -2px;
+}
+// 搜索条件全局样式
+.b-insm{
+    position: relative;
+    width: 100%;
+    &-label{
+        width: 100%;
+        font-size: 12px;
+        color: @label;
+        height: 30px;
+        line-height: 30px;
+    }
+    &-input{
+        width: 100% !important;
+        font-size: 14px;
+        color: @fzcolor;
+        height: 40px;
+    }
+    &-inputs{
+        width: 100% !important;
+        font-size: 14px;
+        color: @fzcolor;
+    }
+}
+// 字体颜色公共方法
+.b-fc{
+    color: @fzcolor;
+}
+// 面包屑样式
+.b-bread {
+    padding-bottom: 15px;
+}
+// 登录
+.b-login {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    .el-input__inner {
+        height: 60px !important;
+    }
+    &-bg {
+        float: left;
+        width: 50%;
+        height: 100%;
+        position: relative;
+        background-image: url('../assets/img/login.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 100%;
+    }
+    &-site {
+        width: 90%;
+        position: absolute;
+        bottom: 16%;
+        left: 5%;
+        &-logo {
+            width: 100%;
+            height: 40px;
+            .svg-icon{
+                display: inline-block;
+                width: 150px !important;
+                height: 40px !important;
+            }
+        }
+        &-info {
+            width: 100%;
+            color: rgba(255,255,255,0.8);
+            font-size: 16px;
+            text-align: justify;
+            padding-top: 20px;
+        }
+    }
+    &-con {
+        float: left;
+        position: relative;
+        width: 50%;
+        height: 100%;
+        &-item {
+            position: relative;
+            padding-top: 124px;
+        }
+    }
+    &-lang {
+        position: absolute;
+        top: 38px;
+        right: 15%;
+        font-size: 14px;
+        color: @fzcolor;
+        cursor: pointer;
+        z-index: 100;
+    }
+    &-back {
+        position: absolute;
+        top: 38px;
+        left: 15%;
+        font-size: 14px;
+        color: @fzcolor;
+        cursor: pointer;
+    }
+    &-form {
+        position: relative;
+        width: 70%;
+        min-width: 300px;
+        margin: auto;
+        h1 {
+            font-size: 42px;
+            color: @fzcolor;
+            font-weight: 400;
+        }
+        p {
+            position: relative;
+            width: 100%;
+            padding: 40px 0;
+            font-size: 16px;
+            line-height: 22px;
+            font-weight: 400;
+            color: #8F979F;
+        }
+        &-check {
+            position: relative;
+            padding: 10px 0;
+            font-size: 14px;
+            .forget {
+                cursor: pointer;
+                color: #0a3bbc;
+            }
+        }
+        &-btn {
+            width: 100%;
+            height: 50px;
+            margin-top: 25px;
+        }
+    }
+}
+// 没有数据的缺省页
+.b-nobox {
+    position: relative;
+    width: 100%;
+    padding-top: 60px;
+    &-main {
+        position: relative;
+        width: 40%;
+        height: 400px;
+        text-align: center;
+        padding-top: 260px;
+        margin: auto;
+        background-image: url('../assets/img/nodata.png');
+        background-position: top center;
+        background-size: auto 100%;
+        h5 {
+            font-size: 20px;
+            color: @bncolor;
+            line-height: 40px;
+        }
+        p {
+            font-size: 16px;
+            color: #99C7FF;
+            line-height: 35px;
+        }
+    }
+}
+// 国家下拉框样式
+.b-option-money{
+    padding:0 10px !important;
+}
+
+.b-tabv {
+    h5 {
+        font-size: 14px;
+        color: #4A4A4A;
+        line-height: 22px;
+        padding-bottom: 15px;
+        text-transform: Uppercase;
+    }
+    &-item {
+        position: relative;
+        width: 100%;
+        &-label {
+            font-size: 12px;
+            color: #8F979F;
+            width: 110px;
+            height: 24px;
+            line-height: 24px;
+            text-transform: Uppercase;
+        }
+        &-val {
+            font-size: 12px;
+            color: #12123C;
+            height: 24px;
+            line-height: 24px;
+        }
+    }
+}
+
+.b-pre {
+    .el-dialog{
+        max-width: 600px;
+        &__body {
+            padding: 0 3px;
+        }
+    }
+}
+
+// 渠道关联关系弹框样式
+.b-relation{
+    .el-dialog__body{
+        background: #fff;
+        padding: 50px 63px 15px 63px;
+    }
+    &-h{
+        text-align: center;
+        width: 100%;
+        padding-bottom: 12px;
+    }
+    &-p{
+        color: #8F979F;
+        text-align: center;
+        width: 100%;
+        padding-bottom: 30px;
+    }
+    &-search{
+        padding-bottom: 10px;
+        .b-relation-select{
+            width:100%;
+        }
+    }
+    &-btn{
+        width:100%;
+        text-align: center;
+        padding-bottom: 10px;
+        span{
+            background: #F6F6F6;
+            display: inline-block;
+            padding:7px 30px;
+            font-size: 14px;
+            color:#8F979F;
+            border-radius:4px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+    }
+    &-foot{
+        width:100%;
+        text-align: center;
+        display: inline-block;
+    }
+    th,td{
+        border-bottom: none!important;
+    }
+    .el-table--border::after, .el-table--group::after, .el-table::before{
+        background-color: #fff;
+    }
+}
+// 通用表头样式
+.b-thead {
+    th {
+        color: #8F979F;
+        background-color: #F6F7FA !important;
+        font-weight: 400;
+    }
+}
+// 建立关系
+.b-relate {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    &-title {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding-left: 60px;
+        &-logo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 40px !important;
+            height: 40px !important;
+        }
+        &-unbind {
+            display: inline-block;
+            margin-left: 10px;
+            color: #8F979F;
+            cursor: pointer;
+        }
+        &.facebook {
+            color: #4A649F;
+        }
+        &.twitter {
+            color: #2FB0EC;
+        }
+        h2 {
+            font-size: 20px;
+            line-height: 36px;
+            color: #8F979F;
+        }
+        p {
+            font-size: 14px;
+            line-height: 16px;
+            color: #12123C;
+        }
+        &-tip {
+            color: #9B9B9B;
+            font-size: 12px;
+            padding-bottom: 10px;
+        }
+    }
+    &-btn {
+        font-size: 16px;
+        color: #fff;
+        padding: 8px 15px;
+        vertical-align: -2px;
+    }
+    &-active {
+        color: #0A3BBC;
+        border: none;
+        outline: none;
+    }
+    &-slp {
+        color: #12123C;
+        font-size: 12px;
+        line-height: 18px;
+        padding: 10px 0 30px;
+    }
+    &-login {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        height: 300px;
+        width: 500px;
+        text-align: center;
+        p {
+            color: #12123C;
+        }
+        &-btn {
+            font-size: 20px;
+            color: #fff;
+            padding: 8px 15px;
+            vertical-align: -2px;
+            small {
+                font-size: 16px;
+                padding-left: 15px;
+                vertical-align: 1px;
+                text-transform: capitalize;
+            }
+        }
+    }
+}
+.b-breadcrumb{
+    padding-bottom: 10px;
+    &-last{
+        font-weight: 700;
+        cursor: pointer;
+    }
+    &-line{
+        color: #97a8be;
+        padding: 0 10px;
+    }
+    &-cur{
+        color: #97a8be;
+    }
+}
+
+// 仪表盘样式
+.pboard-box{
+    background: #F6F7FA;
+    border-top: 1px solid #E4E6EC;
+    .pboard-con{
+        width: 50%;
+        margin: 86px auto;
+        box-shadow:0 0 15px #ccc;
+        min-width: 700px;
+        position: relative;
+        &-bg{
+            width: 100%;
+            height: auto;
+        }
+        .pboard-info{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            padding-top: 60px;
+            top: 0;
+            left: 0;
+            h4{
+                font-size: 28px;
+                text-align: center;
+                width:100%;
+                color: #5E5E65;
+                font-weight: 500;
+            }
+            h3{
+                font-weight: 500;
+                text-align: center;
+                width:100%;
+                padding:30px 0 10px 0;
+                .logo{
+                    height: 54px;
+                    width: auto;
+                }
+            }
+            p{
+                text-align: center;
+                width:100%;
+                color: #5E5E65;
+            }
+            &-p1{
+                font-size: 18px;
+            }
+            &-p2{
+                font-size: 14px;
+                padding-top: 50px;
+                padding-bottom: 10px;
+            }
+            &-btn{
+                text-align: center;
+                width:100%;
+                span{
+                    display: inline-block;
+                    color: #fff;
+                    font-size: 18px;
+                    background: #2C87D6;
+                    padding: 15px 30px;
+                    border-radius:4px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+// 结算总计样式
+.b-sum{
+    padding: 10px;
+    h4{
+        font-size: 24px;
+        color: #12123C;
+        font-weight:500;
+        img{
+            padding-right: 5px;
+        }
+        span{
+            vertical-align: middle;
+            display: inline-block
+        }
+    }
+    &-ul{
+        padding-top:20px;
+        li{
+            line-height: 35px;
+            width:100%;
+            .b-sum-spl{
+                display: inline-block;
+                color: #8F979F;
+                /*padding-right: 10px;*/
+                width: 47%;
+                text-align: left;
+                padding-left: 20%;
+                box-sizing: border-box;
+            }
+            .b-sum-spr{
+                display: inline-block;
+                color: #12123C;
+                width: 50%;
+                text-align: left;
+                padding-left: 10%;
+                box-sizing: border-box;
+            }
+        }
+    }
+}
+.b-loading {
+    &:before {
+        content: url('../assets/img/login.png');
+        display: inline-block;
+    }
+}
+// switch样式
+.b-switch-sp{
+    opacity: 1 !important;
+    .el-switch__core{
+        cursor: pointer !important;
+    }
+}
+
+.el-checkbox__input.is-checked+.el-checkbox__label {
+    color: @mcolor;
+}
+.el-checkbox__inner:hover {
+    border-color: @mcolor;
+}
+.el-checkbox__input.is-focus .el-checkbox__inner{
+    border-color: @mcolor;
+}
+.el-checkbox__input.is-checked .el-checkbox__inner {
+    background-color: @mcolor;
+    border-color: @mcolor;
+}
+.el-radio__input.is-checked+.el-radio__label {
+    color: @mcolor;
+}
+.el-radio__input.is-checked .el-radio__inner {
+    border-color: @mcolor;
+    background: @mcolor;
+}
+.el-input__inner:focus {
+    border-color: @mcolor;
+}
+.el-range-editor.is-active, .el-range-editor.is-active:hover {
+    border-color: @mcolor;
+}
+.el-dropdown-menu__item:hover {
+    color: @mcolor !important;
+}
+.el-select .el-input__inner:focus {
+    border-color: @mcolor;
+}
+.el-select .el-input.is-focus .el-input__inner{
+    border-color: @mcolor;
+}
+.el-textarea__inner:focus{
+    border-color: @mcolor;
+}
+
+.b-table-action{
+    span{
+        display: inline-block;
+        color: @bncolor;
+        cursor: pointer;
+        padding: 0 5px;
+    }
+}
+
