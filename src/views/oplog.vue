@@ -92,10 +92,10 @@
         </el-col>
         <el-input v-model="contentQuery.code" placeholder="请输入email验证码"></el-input>
         <el-input
-                type="textarea"
-                autosize
-                placeholder="请输入content"
-                v-model="contentQuery.content">
+            type="textarea"
+            autosize
+            placeholder="请输入content"
+            v-model="contentQuery.content">
         </el-input>
         <el-col :span="2">
             <section class="b-insm">
@@ -108,10 +108,10 @@
         </el-col>
         <div style="margin: 20px 0;"></div>
         <el-input
-                type="textarea"
-                :autosize="{ minRows: 1, maxRows: 20}"
-                placeholder="请输入内容"
-                v-model="textarea2">
+            type="textarea"
+            :autosize="{ minRows: 1, maxRows: 20}"
+            placeholder="请输入内容"
+            v-model="textarea2">
         </el-input>
     </div>
 </template>

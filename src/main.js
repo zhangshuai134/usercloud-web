@@ -25,7 +25,6 @@ Vue.use(Element, {
   i18n: (key, value) => i18n.t(key, value)
 })
 
-
 // 全局注册过滤器.
 Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key])

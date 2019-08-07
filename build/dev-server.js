@@ -49,7 +49,6 @@ Object.keys(proxyTable).forEach(function (context) {
     options = { target: options }
   }
   // 接口过滤
-  console.log("options.filter:"+options.filter || context)
   app.use(proxyMiddleware(options.filter || context, options))
 })
 
@@ -57,7 +56,7 @@ Object.keys(proxyTable).forEach(function (context) {
 app.use(require('connect-history-api-fallback')())
 
 // 加载服务中间件
-app.use(devMiddleware)
+// app.use(devMiddleware)
 
 // 含编译错误处理方法
 app.use(hotMiddleware)

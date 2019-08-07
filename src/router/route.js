@@ -1,8 +1,11 @@
 // 懒加载适配器
 let _import
 
-_import = file => () => import('@/views/' + file + '.vue')
-
+if (process.env.NODE_ENV == 'development') {
+  _import = file => require('@/views/' + file + '.vue').default
+} else {
+  _import = file => () => import('@/views/' + file + '.vue')
+}
 // 基础路由映射
 const routes = [
     {

@@ -110,5 +110,5 @@ export default {
             data.er && data.er(er)
             // Message.error(er)
         })
-    },
+    }
 }
